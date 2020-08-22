@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import api from './services/api';
 
-import './App.css';
+import './styles.css';
 
 function App() {
   const [repositories, setRepositories] = useState([]);
@@ -37,7 +37,7 @@ function App() {
     <>
       <Header title="Repositórios" />
 
-      <ul>
+      <ul data-testid="repository-list">
         {repositories.map(repostitory => (
           <li key={repostitory.id}>
             {repostitory.title}
@@ -52,7 +52,7 @@ function App() {
       <br/>
       <input type="text" value={techs} onChange={e => setTechs(e.target.value.split(','))} placeholder="Repository techs (separate it with commas)" />
       <br/>
-      <button type="button" onClick={handleAddRepository}>Adicionar projeto</button>
+      <button type="button" onClick={handleAddRepository}>Adicionar</button>
     </>
   )
 }
